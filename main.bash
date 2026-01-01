@@ -15,14 +15,11 @@ log_event() {
     local MODULE=$3
     local TIMESTAMP=$(date +"%A,%B%d,%Y-%H:%M")
     # This keeps your format consistent: LEVEL: message: TIMESTAMP: FROM module
-    printf "$LEVEL: $MSG: $TIMESTAMP: FROM $MODULE\n" >> system_log.csv
+    printf "%s: %s: %s: FROM %s\n" "$LEVEL" "$MSG" "$TIMESTAMP" "$MODULE" >> system_log.csv
 }
 
 simulation() {
-    echo "similation 1 ................................................."
-    # 5% chance of Disk Critical Anomaly
     if [ $((RANDOM % 20)) -eq 0 ]; then
-        echo "similation..........................."
         for i in {1..10}; do
             log_event "CRITICAL" "Disk space at 99% - partition /dev/sda1" "system_monitor"
         done
@@ -30,7 +27,6 @@ simulation() {
 
     # 2% chance of "Long Message" Anomaly (AI detects this via message_length)
     if [ $((RANDOM % 50)) -eq 0 ]; then
-        echo "similation..........................."
         LONG_STR=$(printf '%.0sERROR_BLOB_' {1..20})
         log_event "ERROR" "Unexpected buffer: $LONG_STR" "memory_manager"
     fi
@@ -62,11 +58,11 @@ home() {
     elif [ $a == "3" ];then
         ./delete-user.bash $FILE_DATA
     elif [ $a == "q" ]; then
-        simulation
         exit 0
     else
         echo "error: command not expected"
         log_event "ERROR" "command not expected: $a" "main"
+        simulation
         home
 
     fi

@@ -4,6 +4,7 @@ from sklearn.ensemble import IsolationForest
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import os
 
 # 1. Load the data
 log_file_path = "system_log.csv"
@@ -65,6 +66,14 @@ if not anomalies.empty:
 else:
     print("No anomalies detected.")
 
+def trigger_alert(anomaly_count):
+    if anomaly_count > 0:
+        msg = f"AIOps ALERT: {anomaly_count} anomalies detected in system logs!"
+        print(f"\n🔔 SENDING NOTIFICATION: {msg}")
+        
+        # This uses the Debian system notification tool
+        os.system(f'notify-send "AIOps Alert" "{msg}"')
+
 # Assign colors: Red for anomalies, Green for normal
 colors = df['anomaly'].map({1: 'tab:green', -1: 'tab:red'})
 plt.figure(figsize=(10, 6))
@@ -75,3 +84,4 @@ plt.ylabel('Message Length (Characters)')
 plt.grid(True)
 plt.savefig('anomaly_report.png')
 print("\n📈 Graph saved successfully as 'anomaly_report.png'")
+trigger_alert(len(anomalies))

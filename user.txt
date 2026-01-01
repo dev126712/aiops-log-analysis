@@ -1,0 +1,12 @@
+alexandre:1169:admin
+admin:5304:fake admin
+Blob:7124:just Blob
+Chris:1213:Just Chris from Laval
+juju:6406:friend
+marc:5174:chief
+foo:6148:foo
+bar:1592:bar
+steven:9214:soccer player
+wallen:6289:wallen
+fblob:1483:w
+fle:6960:fle
