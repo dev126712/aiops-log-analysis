@@ -1,5 +1,5 @@
 # aiops-log-analysis
-This project demonstrates a proactive **AIOps pipeline**. It consists of a modular Linux-based user management system Icreated in bash that stimulates real-time telemetry, paired with a Machine Learning engine that detects system anomalies.
+This project demonstrates a proactive **AIOps pipeline**. It consists of a modular Linux-based user management system Icreated in bash that simulates real-time telemetry, paired with a Machine Learning engine that detects system anomalies.
 
 #### Why bash script?
 - To demonstrate my bash skill like file I/O operations and persistent data storage managements, script-to-script execution. Other example can be a bash script that check the health of a machine and send alert to Slacks if the AI feels an anomaly and something is about to break. Automate the script that run in the background at specific times or intervals automated with the cron deamon on linux based machine.
@@ -17,12 +17,19 @@ In this project the goal is to move from reactive monitoring (waiting for things
 - **Feature Engineering**: Converts raw text logs into numerical features (level_score, message_length) that the model can process
 - **Observability Visualization**: Generates a scatter plot via Matplotlib, mapping system health and highlighting detected outliers in red.
 
-## Prerequisites:
+## Prerequisites with Docker:
+- Docker
+
+## Docker Build and Execution:
+````
+  docker build -t aiops-analyzer .
+  docker run --rm -v $(pwd):/app aiops-analyzer
+````
+## Prerequisites (without Docker):
 - Linux/Debian environment
 - Python 3.11+
-- ````python3-venv````
-
-## Installation
+- python3-venv
+## Installation (Without Docker):
 1. Clone the repo
 2. Setup virtual environment:
   ````
@@ -30,11 +37,7 @@ In this project the goal is to move from reactive monitoring (waiting for things
     source .venv/bin/activate
     pip install -r requirements.txt
   ````
-
-3. Run bash script and play with it to generate logs:
-````
-./main.bash user.txt
-````
+## Execution (Without Docker)
 
 4. Analyze logs:
 ````
