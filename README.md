@@ -1,8 +1,8 @@
 # aiops-log-analysis
-This project demonstrates a proactive AIOps pipeline. It consists of a modular Linux-based user management system Icreated in bash that stimulates real-time telemetry, paired with a Machine Learning engine that detects system anomalies.
+This project demonstrates a proactive **AIOps pipeline**. It consists of a modular Linux-based user management system Icreated in bash that stimulates real-time telemetry, paired with a Machine Learning engine that detects system anomalies.
 
 #### Why bash script?
-- To demonstrate my bash skill like reading files, create files, delete content from a files, trigger a script         from a other script. Other example can be a bash script that check the heaklth of a machine and send alert to Slacks if the AI feels an anomaly and something is about to break and automate the script to run like every 5 minutes automated with the cron deamon on linux based machine.
+- To demonstrate my bash skill like file I/O operations and persistent data storage managements, script-to-script execution. Other example can be a bash script that check the health of a machine and send alert to Slacks if the AI feels an anomaly and something is about to break. Automate the script that run in the background at specific times or intervals automated with the cron deamon on linux based machine.
 
 In this project the goal is to move from reactive monitoring (waiting for things to break) to predictive observability (identifying unusual patterns before they cause downtime).
 ## Bash Script:
