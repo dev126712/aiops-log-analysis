@@ -10,3 +10,8 @@ The goal is to move from reactive monitoring (waiting for things to break) to pr
 - **Isolation Forest Algorithm**: A tree-based model that isolates anomalies rather than profiling normal points. It evaluates logs based on severity_level and message_length
 - **Feature Engineering**: Converts raw text logs into numerical features (level_score, message_length) that the model can process
 - **Observability Visualization**: Generates a scatter plot via Matplotlib, mapping system health and highlighting detected outliers in red.
+
+Bash script:
+````
+./main.bash user.txt
+````
