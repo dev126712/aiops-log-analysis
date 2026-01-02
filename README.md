@@ -14,4 +14,27 @@ The goal is to move from reactive monitoring (waiting for things to break) to pr
 - **Feature Engineering**: Converts raw text logs into numerical features (level_score, message_length) that the model can process
 - **Observability Visualization**: Generates a scatter plot via Matplotlib, mapping system health and highlighting detected outliers in red.
 
+## Prerequisites:
+- Linux/Debian environment
+- Python 3.11+
+- ````python3-venv````
+
+## Installation
+1 Clone the repo
+2 Setup virtual environment:
+  ````
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+  ````
+
+3 Run bash script:
+````
+./main.bash user.txt
+````
+
+4 Analyze logs:
+````
+python3 log-analisys.py
+````
 ![alt text](https://github.com/dev126712/aiops-log-analysis/blob/1b9e96bdd7f454f4d2397dcda6aa9867298de17d/Screenshot%202026-01-01%207.41.47%20PM.png)
