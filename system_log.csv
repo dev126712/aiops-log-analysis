@@ -57,3 +57,107 @@ ERROR: command not expected: ping: Thursday,January01,2026-18:46: FROM main
 INFO: press 2: Thursday,January01,2026-18:46: FROM main
 INFO: fle:6960:fle: Thursday,January01,2026-18:46: FROM create user
 INFO: press q: Thursday,January01,2026-18:46: FROM main
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+ERROR: Unexpected buffer: ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_ERROR_BLOB_: Thursday,January01,2026-19:40: FROM memory_manager
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+CRITICAL: Disk space at 99% - partition /dev/sda1: Thursday,January01,2026-19:40: FROM system_monitor
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 11: Thursday,January01,2026-19:40: FROM main
+ERROR: command not expected: 11: Thursday,January01,2026-19:40: FROM main
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press 1: Thursday,January01,2026-19:40: FROM main
+INFO: search all user: found 12 records: Thursday,January01,2026-19:40: FROM see all users
+INFO: press q: Thursday,January01,2026-19:40: FROM main
