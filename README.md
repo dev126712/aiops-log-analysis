@@ -2,7 +2,7 @@
 This project demonstrates a proactive AIOps pipeline. It consists of a modular Linux-based user management system Icreated in bash that stimulates real-time telemetry, paired with a Machine Learning engine that detects system anomalies.
 
 #### Why bash script?
-    - To demonstrate my bash skill like reading files, create files, delete content from a files, trigger a script         from a other script.
+- To demonstrate my bash skill like reading files, create files, delete content from a files, trigger a script         from a other script.
 
 The goal is to move from reactive monitoring (waiting for things to break) to predictive observability (identifying unusual patterns before they cause downtime).
 ## Bash Script:
