@@ -7,14 +7,12 @@
 
 
 FILE_DATA=$1
-echo "File data: $FILE_DATA"
 
 log_event() {
     local LEVEL=$1
     local MSG=$2
     local MODULE=$3
     local TIMESTAMP=$(date +"%A,%B%d,%Y-%H:%M")
-    # This keeps your format consistent: LEVEL: message: TIMESTAMP: FROM module
     printf "%s: %s: %s: FROM %s\n" "$LEVEL" "$MSG" "$TIMESTAMP" "$MODULE" >> system_log.csv
 }
 
@@ -25,7 +23,6 @@ simulation() {
         done
     fi
 
-    # 2% chance of "Long Message" Anomaly (AI detects this via message_length)
     if [ $((RANDOM % 50)) -eq 0 ]; then
         LONG_STR=$(printf '%.0sERROR_BLOB_' {1..20})
         log_event "ERROR" "Unexpected buffer: $LONG_STR" "memory_manager"

@@ -23,7 +23,6 @@ create_user() {
 
     if [ -z $user_name ]; then
         echo "ERROR: name is required.."
-        # Log the error for the AI to detect
         log_event "ERROR" "name is required" "create user"
         create_user
         return
@@ -33,7 +32,6 @@ create_user() {
     read user_id
 
     if [ -z $user_id ]; then
-        #id_generator
         user_id=$((RANDOM % 9000 + 1000))
         echo "Generated User ID: $user_id"
     fi
@@ -52,7 +50,6 @@ create_user() {
     exit 0
 }
 
-#id_generator() {}
 
 main(){
     create_user

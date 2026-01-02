@@ -7,7 +7,6 @@
 
 FILE_DATA="$1"
 
-# --- Logging Function ---
 log_event() {
     local LEVEL=$1
     local MSG=$2
@@ -27,27 +26,22 @@ delete_user() {
         return
     fi
 
-    # Check if the user actually exists before trying to delete
     if ! grep -q "^${NameToDelete}:" "$FILE_DATA"; then
         echo "Error: User '$NameToDelete' not found."
         log_event "WARNING" "User '$NameToDelete' not found" "delete user"
         return
     fi
 
-    # Capture user details before deleting for the log
     USER_DETAILS=$(grep "^${NameToDelete}:" "$FILE_DATA")
     
-    # Perform deletion
     sed -i "/^${NameToDelete}:/d" "$FILE_DATA"
     
-    # Log the successful deletion
     echo "User deleted: $USER_DETAILS"
     log_event "INFO" "user deleted: $USER_DETAILS" "delete user"
 }
 
 main (){
     delete_user
-    # Return to main menu
     ./main.bash "$FILE_DATA"
 }
 
