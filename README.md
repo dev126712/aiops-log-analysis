@@ -20,20 +20,20 @@ The goal is to move from reactive monitoring (waiting for things to break) to pr
 - ````python3-venv````
 
 ## Installation
-1 Clone the repo
-2 Setup virtual environment:
+1. Clone the repo
+2. Setup virtual environment:
   ````
     python3 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
   ````
 
-3 Run bash script:
+3. Run bash script:
 ````
 ./main.bash user.txt
 ````
 
-4 Analyze logs:
+4. Analyze logs:
 ````
 python3 log-analisys.py
 ````
