@@ -31,7 +31,7 @@ In this project the goal is to move from reactive monitoring (waiting for things
     pip install -r requirements.txt
   ````
 
-3. Run bash script:
+3. Run bash script and play with it to generate logs:
 ````
 ./main.bash user.txt
 ````
