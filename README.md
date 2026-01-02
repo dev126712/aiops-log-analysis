@@ -3,7 +3,9 @@ This project demonstrates a proactive AIOps (Artificial Intelligence for IT Oper
 
 The goal is to move from reactive monitoring (waiting for things to break) to predictive observability (identifying unusual patterns before they cause downtime).
 ## Bash Script:
-```` ./main.bash user.txt ````
+```` bash
+./main.bash user.txt
+````
 - **Modular Scripts**: Separate logic for CRUD operations (create, see, delete) to simulate a microservices environment.
 - **Logging**: Implements a custom log_event function to ensure all telemetry follows a consistent schema: LEVEL: MESSAGE: TIMESTAMP: MODULE
 - **Chaos Engineering Simulation**: Includes a simulation engine that injects pseudo-random anomalies, such as disk space saturation (99% usage) and buffer overflows, to test the resilience of the monitoring stack.
