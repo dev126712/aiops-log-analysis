@@ -23,6 +23,7 @@ he goal is to move from reactive monitoring (waiting for things to break) to pre
 
 
 ````
+aiops-log-analysis
 ├──log-analisys.py
 |
 ├── Dockerfile    
