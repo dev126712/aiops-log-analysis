@@ -1,73 +1,155 @@
+####################
+#
+# AI-Log-Analyzer
+# Description: Analyzes system logs to detect anomalies using Isolation Forest.
+# Author: Alexandre St-fort
+# Last modified: 11/11/25
+#
+####################
+
+import os
+import json
+import shutil
+import requests
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import IsolationForest
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import os
 
-log_file_path = "system_log.csv"
-data = []
+LOG_FILE_PATH = "system_log.csv"
+SLACK_WEBHOOK_URL = os.getenv("SLACK_URL")
+CONTAMINATION_RATE = "10%"
+LEVEL_MAPPING = {
+    "DEBUG": 0, 
+    "INFO": 1, 
+    "WARNING": 2, 
+    "ERROR": 3, 
+    "CRITICAL": 4
+    }
 
-with open(log_file_path, "r") as file:
-    for line in file:
-        line = line.strip()
-        if not line or ":" not in line:
-            continue
-        
-        parts = line.split(": ")
-        
-        if len(parts) >= 3:
-            level = parts[0].strip()
-            message = parts[1].strip()
-            timestamp = parts[2].strip()
-            data.append([timestamp, level, message])
+def percent_to_decimal(CONTAMINATION_RATE):
+    CONTAMINATION_RATE = float(CONTAMINATION_RATE.strip('%'))
+    print(CONTAMINATION_RATE)
+    return CONTAMINATION_RATE / 100
 
-df = pd.DataFrame(data, columns=["timestamp", "level", "message"])
+def load_and_parse_logs(LOG_FILE_PATH):
+    data = []
 
-if df.empty:
-    print("❌ ERROR: No logs found! Your CSV format might not match the script.")
-    print("Ensure your logs look like 'INFO: message: Thursday,January01...'")
-    exit()
+    if not os.path.exists(LOG_FILE_PATH):
+        print(f"❌ ERROR: File {LOG_FILE_PATH} not found.")
+        return pd.DataFrame()
 
-df["timestamp"] = pd.to_datetime(df["timestamp"], format="%A,%B%d,%Y-%H:%M", errors='coerce')
+    with open(LOG_FILE_PATH, "r") as file:
+        for line in file:
+            line = line.strip()
+            if not line or ":" not in line:
+                continue
 
-df = df.dropna(subset=["timestamp"])
+            parts = line.split(": ")
 
-if df.empty:
-    print("❌ ERROR: Data was found, but the Timestamps are in the wrong format.")
-    exit()
+            if len(parts) >= 3:
+                level = parts[0].strip()
+                message = parts[1].strip()
+                timestamp = parts[2].strip()
+                data.append([timestamp, level, message])
 
-level_mapping = {"DEBUG": 0, "INFO": 1, "WARNING": 2, "ERROR": 3, "CRITICAL": 4}
-df["level_score"] = df["level"].map(level_mapping).fillna(1)
-df["message_length"] = df["message"].apply(len)
+    df = pd.DataFrame(data, columns=["timestamp", "level", "message"])
+    if df.empty:
+        print("❌ ERROR: No logs found! Your CSV format might not match the script.")
+        print("Ensure your logs look like 'INFO: message: Thursday,January01...'")
+    return df
 
-model = IsolationForest(contamination=0.1, random_state=42)
-df["anomaly"] = model.fit_predict(df[["level_score", "message_length"]])
+def preprocess_data(df):
+    df["timestamp"] = pd.to_datetime(df["timestamp"], format="%A,%B%d,%Y-%H:%M", errors='coerce')
+    df_clean = df.dropna(subset=["timestamp"]).copy()
+    df_clean["level_score"] = df_clean["level"].map(LEVEL_MAPPING).fillna(1)
+    df_clean["message_length"] = df_clean["message"].apply(len)
+    return df_clean
 
-df["status"] = df["anomaly"].apply(lambda x: "❌ ANOMALY" if x == -1 else "✅ NORMAL")
+def detect_anomalies(df, CONTAMINATION_RATE):
+    model = IsolationForest(contamination=CONTAMINATION_RATE, random_state=42)
+    df["anomaly_code"] = model.fit_predict(df[["level_score", "message_length"]])
+    df["status"] = df["anomaly_code"].apply(lambda x: "❌ ANOMALY" if x == -1 else "✅ NORMAL")
+    print(f"\n✅ Analysis Complete! Processed {len(df)} log lines.")
+    anomalies = df[df["status"] == "❌ ANOMALY"]
+    if not anomalies.empty:
+        print(anomalies[["timestamp", "level", "message", "status"]])
+    else:
+        print("No anomalies detected.")
+    return df
 
-print(f"\n✅ Analysis Complete! Processed {len(df)} log lines.")
-anomalies = df[df["status"] == "❌ ANOMALY"]
-if not anomalies.empty:
-    print(anomalies[["timestamp", "level", "message", "status"]])
-else:
-    print("No anomalies detected.")
+def generate_report(df):
+    colors = df['anomaly_code'].map({1: 'tab:green', -1: 'tab:red'})
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['level_score'], df['message_length'], c=colors, alpha=0.6)
+    plt.title('AIOps Log Anomaly Detection')
+    plt.xlabel('Log Severity (1=INFO, 4=CRITICAL)')
+    plt.ylabel('Message Length (Characters)')
+    plt.grid(True)
+    plt.savefig('anomaly_report.png')
+    print("\n📈 Graph saved successfully as 'anomaly_report.png'")
 
 def trigger_alert(anomaly_count):
     if anomaly_count > 0:
         msg = f"AIOps ALERT: {anomaly_count} anomalies detected in system logs!"
         print(f"\n🔔 SENDING NOTIFICATION: {msg}")
-        
+
         os.system(f'notify-send "AIOps Alert" "{msg}"')
 
-colors = df['anomaly'].map({1: 'tab:green', -1: 'tab:red'})
-plt.figure(figsize=(10, 6))
-plt.scatter(df['level_score'], df['message_length'], c=colors, alpha=0.6)
-plt.title('AIOps Log Anomaly Detection')
-plt.xlabel('Log Severity (1=INFO, 4=CRITICAL)')
-plt.ylabel('Message Length (Characters)')
-plt.grid(True)
-plt.savefig('anomaly_report.png')
-print("\n📈 Graph saved successfully as 'anomaly_report.png'")
-trigger_alert(len(anomalies))
+def send_slack_alert(anomaly_count, anomalies_df):
+    if not SLACK_WEBHOOK_URL:
+        print("ℹ️ SLACK_URL not set. Skipping Slack notification.")
+        return
+    
+    if anomaly_count == 0:
+        return
+
+    summary = anomalies_df[['level', 'message']].head(5).to_string(index=False)
+
+    payload = {
+        "text": "🚨 *AIOps Anomaly Detection Alert* 🚨",
+        "attachments": [
+            {
+                "color": "#ff0000",
+                "fields": [
+                    {"title": "Total Anomalies Found", "value": str(anomaly_count), "short": True},
+                    {"title": "Status", "value": "Action Required", "short": True},
+                    {"title": "Top Anomalies Detected", "value": f"```{summary}```", "short": False}
+                ],
+                "footer": "Sent from AI-Log-Analyzer Engine"
+            }
+        ]
+    }
+
+    try:
+        response = requests.post(SLACK_WEBHOOK_URL, data=json.dumps(payload))
+        if response.status_code == 200:
+            print("✅ Slack notification sent!")
+        else:
+            print(f"❌ Failed to send Slack alert: {response.status_code}")
+    except Exception as e:
+        print(f"⚠️ Error connecting to Slack: {e}")
+
+
+def main():
+    df_raw_loads= load_and_parse_logs(LOG_FILE_PATH)
+    if df_raw_loads.empty:
+        return
+
+    df_clean = preprocess_data(df_raw_loads)
+    if df_clean.empty:
+        print("❌ ERROR: No valid timestamps found. Check log format.")
+        return
+
+    df_final = detect_anomalies(df_clean, CONTAMINATION_RATE=percent_to_decimal(CONTAMINATION_RATE))
+    anomalies = df_final[df_final["anomaly_code"] == -1]
+    if not anomalies.empty:
+        #trigger_alert(len(anomalies))
+        send_slack_alert(len(anomalies), anomalies)
+
+    #generate_report(df_final)
+
+if __name__ == "__main__":
+    main()
