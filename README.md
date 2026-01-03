@@ -23,14 +23,11 @@ he goal is to move from reactive monitoring (waiting for things to break) to pre
 
 
 ````
-aiops-log-analysis
-├──log-analisys.py
-|
-├── Dockerfile    
-|
-├── requirements.txt
-|
-├── system_log.csv
+├── aiops-log-analysis/
+│   ├── log-analisys.py
+│   ├── Dockerfile    
+│   ├── requirements.txt
+│   ├── system_log.csv
 ````
 
 ## Docker Build and Execution:
