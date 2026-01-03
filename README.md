@@ -57,3 +57,4 @@ deactivate
 rm -rf .venv
 ````
 ![alt text](https://github.com/dev126712/aiops-log-analysis/blob/1b9e96bdd7f454f4d2397dcda6aa9867298de17d/Screenshot%202026-01-01%207.41.47%20PM.png)
+![alt text](https://github.com/dev126712/aiops-log-analysis/blob/b96d915f1cc08974a0387ccd76c20e4c843ec575/image.png)
