@@ -3,7 +3,7 @@
 # AI-Log-Analyzer
 # Description: Analyzes system logs to detect anomalies using Isolation Forest.
 # Author: Alexandre St-fort
-# Last modified: 11/11/25
+# Last modified: 01/02/26
 #
 ####################
 
