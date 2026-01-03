@@ -39,6 +39,7 @@ In this project the goal is to move from reactive monitoring (waiting for things
     python3 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
+    export SLACK_URL="https://hooks.slack.com/services/YOUR/LINK/HERE"
   ````
 ## Execution (Without Docker)
 
