@@ -23,7 +23,10 @@ In this project the goal is to move from reactive monitoring (waiting for things
 ## Docker Build and Execution:
 ````
   docker build -t aiops-analyzer .
-  docker run --rm -v $(pwd):/app aiops-analyzer
+  docker run --rm \
+    -e SLACK_URL="https://hooks.slack.com/services/YOUR/LINK/HERE" \
+    -v $(pwd):/app \
+    aiops-analyzer
 ````
 ## Prerequisites (without Docker):
 - Linux/Debian environment
