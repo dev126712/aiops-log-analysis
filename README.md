@@ -22,7 +22,7 @@ he goal is to move from reactive monitoring (waiting for things to break) to pre
 - Docker
 
 
-Make sure to have the Dockerfile, requirements.txt & log-analisys.py in the same folder.
+Make sure to have the log-analisys.py, Dockerfile, requirements.txt & the log file(system_log.csv) in the same folder.
 ````
 ├── aiops-log-analysis/
 │   ├── log-analisys.py
