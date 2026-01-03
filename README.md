@@ -21,6 +21,17 @@ he goal is to move from reactive monitoring (waiting for things to break) to pre
 ## Prerequisites with Docker:
 - Docker
 
+
+````
+├──log-analisys.py
+|
+├── Dockerfile    
+|
+├── requirements.txt
+|
+├── system_log.csv
+````
+
 ## Docker Build and Execution:
 ### Configuration & Environment
 
