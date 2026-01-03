@@ -24,8 +24,8 @@ he goal is to move from reactive monitoring (waiting for things to break) to pre
 ## Docker Build and Execution:
 ### Configuration & Environment
 
-|--------|--------|--------|
 | Variable | Description | Example |
+|--------|--------|--------|
 | SLACK_URL | Your Slack Incoming Webhook URL | https://hooks.slack.com/services/... |
 ````
   docker build -t aiops-analyzer .
