@@ -43,4 +43,13 @@ In this project the goal is to move from reactive monitoring (waiting for things
 ````
 python3 log-analisys.py
 ````
+## Deactivate the Environment
+````
+deactivate
+````
+## Delete The Virtual Environment Folder
+````
+# In the project directory
+rm -rf .venv
+````
 ![alt text](https://github.com/dev126712/aiops-log-analysis/blob/1b9e96bdd7f454f4d2397dcda6aa9867298de17d/Screenshot%202026-01-01%207.41.47%20PM.png)
