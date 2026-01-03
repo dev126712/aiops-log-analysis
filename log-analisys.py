@@ -22,10 +22,10 @@ LOG_FILE_PATH = "system_log.csv"
 SLACK_WEBHOOK_URL = os.getenv("SLACK_URL")
 CONTAMINATION_RATE = "10%"
 LEVEL_MAPPING = {
-    "DEBUG": 0, 
-    "INFO": 1, 
-    "WARNING": 2, 
-    "ERROR": 3, 
+    "DEBUG": 0,
+    "INFO": 1,
+    "WARNING": 2,
+    "ERROR": 3,
     "CRITICAL": 4
     }
 
@@ -102,11 +102,11 @@ def send_slack_alert(anomaly_count, anomalies_df):
     if not SLACK_WEBHOOK_URL:
         print("ℹ️ SLACK_URL not set. Skipping Slack notification.")
         return
-    
+
     if anomaly_count == 0:
         return
 
-    summary = anomalies_df[['level', 'message']].head(5).to_string(index=False)
+    summary = anomalies_df[['timestamp', 'level', 'message']].head(5).to_string(index=False)
 
     payload = {
         "text": "🚨 *AIOps Anomaly Detection Alert* 🚨",
