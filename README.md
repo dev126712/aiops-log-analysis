@@ -1,10 +1,7 @@
 # AIOps Log Analysis & Anomaly Detection
 This project demonstrates a production-grade AIOps pipeline. It features a modular Linux-based telemetry generator (Bash) paired with an unsupervised Machine Learning engine (Python) that detects system anomalies and routes alerts to Slack.
 
-#### Why bash script?
-- To demonstrate my bash skill like file I/O operations and persistent data storage managements, script-to-script execution. Other example can be a bash script that check the health of a machine and send alert to Slacks if the AI feels an anomaly and something is about to break. Automate the script that run in the background at specific times or intervals automated with the cron deamon on linux based machine.
 
-he goal is to move from reactive monitoring (waiting for things to break) to predictive observability (identifying unusual patterns before they cause downtime).
 ## Bash Script:
 ```` bash
 ./main.bash user.txt
